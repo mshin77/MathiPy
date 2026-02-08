@@ -20,7 +20,7 @@ pip install mathipy[all]        # all features
 
 ## Citation
 
-- Shin, M. (2026). *MathiPy: Multimodal item feature extraction for K-12 math assessment* (Python package version 0.1.1) \[Computer software\]. <a href="https://mshin77.github.io/MathiPy">https://mshin77.github.io/MathiPy</a>
+- Shin, M. (2026). *MathiPy: Multimodal item feature extraction for K-12 math assessment* (Python package version 0.1.1) \[Computer software\]. <a href="https://github.com/mshin77/mathipy">https://github.com/mshin77/mathipy</a>
 
 ```{toctree}
 :hidden:
