@@ -1,4 +1,4 @@
-project = "MathiPy"
+project = "mathipy"
 author = "Mikyung Shin"
 copyright = "2026 Mikyung Shin"
 

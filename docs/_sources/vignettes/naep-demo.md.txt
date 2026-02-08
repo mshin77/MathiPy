@@ -1,6 +1,6 @@
 # Analyzing Math Items
 
-This vignette demonstrates MathiPy's feature extraction pipeline using released items from the National Assessment of Educational Progress (NAEP). MathiPy includes a small sample of 5 NAEP mathematics items spanning grades 4 and 8, multiple years (2017–2024), and difficulty levels.
+This vignette demonstrates mathipy's feature extraction pipeline using released items from the National Assessment of Educational Progress (NAEP). mathipy includes a small sample of 5 NAEP mathematics items spanning grades 4 and 8, multiple years (2017–2024), and difficulty levels.
 
 SOURCE: U.S. Department of Education, Institute of Education Sciences, National Center for Education Statistics, National Assessment of Educational Progress (NAEP), 2017, 2022, and 2024 Mathematics Assessments. Items obtained from the [NAEP Questions Tool](https://www.nationsreportcard.gov/nqt/).
 
