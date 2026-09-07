@@ -29,7 +29,7 @@ ordinal_words = ["first", "second", "third", "fourth", "fifth", "sixth", "sevent
 fraction_words = ["half", "halves", "third", "fourth", "quarter", "fifth",
                   "sixth", "eighth", "tenth"]
 
-homonyms = ["table", "mean", "product", "power", "base", "root", "plane", "right",
+polysemous_words = ["table", "mean", "product", "power", "base", "root", "plane", "right",
             "odd", "even", "volume", "face", "degree", "times", "difference",
             "expression", "operation", "rational", "irrational", "natural", "real",
             "positive", "negative", "order", "range", "mode", "factor", "term",
@@ -125,18 +125,18 @@ def number_features(text: str) -> dict[str, int]:
             "num_total": cardinal + ordinal + fraction + nominal}
 
 
-def homonym_features(text: str) -> dict[str, int]:
+def polysemy_features(text: str) -> dict[str, int]:
     """Everyday words carrying a distinct mathematical sense."""
     lowered = (text or "").lower()
     found = Counter()
-    for word in homonyms:
+    for word in polysemous_words:
         hits = len(re.findall(r"\b" + word + r"s?\b", lowered))
         if hits:
             found[word] = hits
-    return {"homonym_count": sum(found.values()), "homonym_unique": len(found)}
+    return {"polysemy_count": sum(found.values()), "polysemy_unique": len(found)}
 
 
 def register_features(text: str) -> dict[str, int]:
     """Every register measure for one item."""
     return {**relational_features(text), **number_features(text),
-            **homonym_features(text)}
+            **polysemy_features(text)}

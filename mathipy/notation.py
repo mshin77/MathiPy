@@ -65,7 +65,10 @@ def insert_operators(text: str, reference: str, operators: str = OPERATORS) -> s
             at_here, at_there = stop_here + 1, stop_there + 1
 
     merged = "".join(out)
-    strip = lambda s: "".join(ch for ch in s if _alnum.match(ch))
+
+    def strip(s):
+        return "".join(ch for ch in s if _alnum.match(ch))
+
     if strip(merged) != strip(text) or (set(merged) - set(text)) - wanted:
         return text
     return merged

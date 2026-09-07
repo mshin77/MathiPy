@@ -9,9 +9,9 @@ on it.
 
 from __future__ import annotations
 
+import io
 import re
 from collections.abc import Sequence
-import io
 from pathlib import Path
 from typing import Any
 

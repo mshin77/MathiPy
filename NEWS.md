@@ -1,3 +1,9 @@
+# mathipy 0.4.8
+
+- Counts everyday-and-mathematical words as polysemy rather than homonymy.
+- Leaves the function empty when a reply omits it, rather than reading it as unknown.
+- Gives a text-only item the no-visual function on every path.
+
 # mathipy 0.4.7
 
 - Names each visual type for what the figure encodes, not its topic or domain.

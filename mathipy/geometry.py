@@ -308,7 +308,8 @@ def _shaded_cells(binary: np.ndarray, contour: np.ndarray,
     inside = binary[y:y + h, x:x + w]
     ys = np.linspace(0, h, nrow + 1).round().astype(int)
     xs = np.linspace(0, w, ncol + 1).round().astype(int)
-    pad_y = max(1, h // (nrow * 4)); pad_x = max(1, w // (ncol * 4))
+    pad_y = max(1, h // (nrow * 4))
+    pad_x = max(1, w // (ncol * 4))
     filled = 0
     for r in range(nrow):
         for c in range(ncol):

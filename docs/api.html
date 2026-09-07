@@ -445,7 +445,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-features"><code class="docutils literal notranslate"><span class="pre">register_features</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-features"><code class="docutils literal notranslate"><span class="pre">relational_features</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-features"><code class="docutils literal notranslate"><span class="pre">number_features</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homonym-features"><code class="docutils literal notranslate"><span class="pre">homonym_features</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polysemy-features"><code class="docutils literal notranslate"><span class="pre">polysemy_features</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1004,7 +1004,7 @@ names, and whether an everyday word is being used in its mathematical sense.</p>
 
 <span class="n">register_features</span><span class="p">(</span><span class="s2">&quot;Ann has 5 less than Ben. The table shows 1/2.&quot;</span><span class="p">)</span>
 <span class="c1"># {&#39;rel_comparison&#39;: 1, &#39;rel_order_reversed&#39;: 1, &#39;rel_partitive&#39;: 1, ...</span>
-<span class="c1">#  &#39;num_fraction&#39;: 1, &#39;homonym_count&#39;: 1, &#39;homonym_unique&#39;: 1}</span>
+<span class="c1">#  &#39;num_fraction&#39;: 1, &#39;polysemy_count&#39;: 1, &#39;polysemy_unique&#39;: 1}</span>
 </pre></div>
 </div>
 <p>Returns every measure below in one dictionary.</p>
@@ -1037,16 +1037,16 @@ identify an object. Treating every number as a count misdescribes ordinary text
 </pre></div>
 </div>
 </section>
-<section id="homonym-features">
-<h3><code class="docutils literal notranslate"><span class="pre">homonym_features</span></code><a class="headerlink" href="#homonym-features" title="Link to this heading">#</a></h3>
+<section id="polysemy-features">
+<h3><code class="docutils literal notranslate"><span class="pre">polysemy_features</span></code><a class="headerlink" href="#polysemy-features" title="Link to this heading">#</a></h3>
 <p>Everyday words carrying a distinct mathematical sense, such as <em>table</em>, <em>mean</em>,
 <em>product</em>, <em>power</em>, <em>base</em>, <em>root</em>, <em>plane</em>, <em>right</em>, and <em>odd</em>. A reader must
 choose between the two senses, which is one of the demands the register places
 on comprehension (Schleppegrell, 2007).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mathipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">homonym_features</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mathipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">polysemy_features</span>
 
-<span class="n">homonym_features</span><span class="p">(</span><span class="s2">&quot;The table shows the mean and the range.&quot;</span><span class="p">)</span>
-<span class="c1"># {&#39;homonym_count&#39;: 3, &#39;homonym_unique&#39;: 3}</span>
+<span class="n">polysemy_features</span><span class="p">(</span><span class="s2">&quot;The table shows the mean and the range.&quot;</span><span class="p">)</span>
+<span class="c1"># {&#39;polysemy_count&#39;: 3, &#39;polysemy_unique&#39;: 3}</span>
 </pre></div>
 </div>
 </section>

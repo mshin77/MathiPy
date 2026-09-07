@@ -1,6 +1,6 @@
 """mathipy - Multimodal item feature extraction for K-12 math assessment."""
 
-__version__ = "0.4.7"
+__version__ = "0.4.8"
 __author__ = "Mikyung Shin"
 __email__ = "shin.mikyung@gmail.com"
 
@@ -13,12 +13,16 @@ from mathipy.cohesion import (
     lexical_overlap,
     pronoun_density,
 )
+from mathipy.crossmodal import crossmodal_features, deictic_features, label_features
 from mathipy.deidentify import deidentify, deidentify_turns, scan
 from mathipy.dialogue import check_speakers, segment_turns, turn_measures
-from mathipy.documents import (body_paragraphs, check_alignment, paragraph_images,
-                               paragraph_text, segment_docx)
-from mathipy.item import ItemFeatureExtractor, MultimodalAnalyzer
-from mathipy.crossmodal import crossmodal_features, deictic_features, label_features
+from mathipy.documents import (
+    body_paragraphs,
+    check_alignment,
+    paragraph_images,
+    paragraph_text,
+    segment_docx,
+)
 from mathipy.features import (
     composite_features,
     dependent_sets,
@@ -28,18 +32,19 @@ from mathipy.features import (
 )
 from mathipy.fractions import fraction_features
 from mathipy.geometry import classify_shapes
+from mathipy.item import ItemFeatureExtractor, MultimodalAnalyzer
 from mathipy.math_content import MathContentAnalyzer
 from mathipy.morphology import morphology_features
-from mathipy.notation import normalize_math_notation, insert_operators
-from mathipy.symbolic import channel_pairs, symbolic_features
+from mathipy.notation import insert_operators, normalize_math_notation
+from mathipy.ocr import MultimodalOCR
+from mathipy.readability import ReadabilityAnalyzer
 from mathipy.register import (
-    homonym_features,
     number_features,
+    polysemy_features,
     register_features,
     relational_features,
 )
-from mathipy.ocr import MultimodalOCR
-from mathipy.readability import ReadabilityAnalyzer
+from mathipy.symbolic import channel_pairs, symbolic_features
 from mathipy.utils import compute_interrater_reliability, safe_get
 from mathipy.validation import (
     disagreements,
@@ -117,7 +122,7 @@ __all__ = [
     "register_features",
     "relational_features",
     "number_features",
-    "homonym_features",
+    "polysemy_features",
     "stratified_sample",
     "write_coding_sheets",
     "write_label_studio",

@@ -255,8 +255,6 @@ class VisualModelClassifier(VisionAPIClient):
         if primary in visual_models and not entry[primary]:
             entry[primary] = True
             entry["model_count"] = sum(entry[m] for m in visual_models)
-        elif primary == "other" and entry["model_count"] == 0:
-            entry["text_only"] = False
         return entry
 
     @staticmethod
@@ -288,15 +286,14 @@ class VisualModelClassifier(VisionAPIClient):
             logger.warning("unrecognised primary %r; recording as unclassified", primary)
             primary = None
 
-        raw_function = parsed.get("function")
-        function = _normalize_label(raw_function)
-        if function in (None, "null"):
-            function = "no_visual" if primary == "text_only" else None
-        elif function not in visual_functions:
+        function = _normalize_label(parsed.get("function")) or None
+        if function == "null":
+            function = None
+        elif function and function not in visual_functions:
             function = "unknown"
-        if primary == "text_only" and function in ("essential", "decorative"):
+        if primary == "text_only":
             function = "no_visual"
-        elif primary and primary != "text_only" and function == "no_visual":
+        elif primary and function == "no_visual":
             function = "unknown"
 
         box = _parse_box(parsed.get("figure_box"))
@@ -305,9 +302,6 @@ class VisualModelClassifier(VisionAPIClient):
         if not (primary or any(entry.values()) or box or option_boxes):
             logger.info("Classify response named no visual model; the image carries none")
             return VisualModelClassifier.fallback_result("empty")
-
-        if primary == "text_only":
-            function = None
 
         entry.update({
             "primary": primary or None,
